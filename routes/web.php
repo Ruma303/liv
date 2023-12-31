@@ -17,14 +17,9 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return inertia('Welcome');
 });
-
-
-/* Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'nick' => 'Ruma',
-        'job' => 'Web developer',
-        'Liv' => ['Inertia', 'Laravel', 'Vue']
-    ]);
-}); */
-
-
+Route::get('/contacts', function () {
+    return inertia('Contacts');
+});
+Route::get('/about', function () {
+    return inertia('About');
+});

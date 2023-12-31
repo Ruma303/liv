@@ -1,8 +1,8 @@
 <template>
-    <h1>Welcome page</h1>
+    <h1>About page</h1>
+
 </template>
 <script setup>
-import { Link } from '@inertiajs/vue3';
 
 </script>
 <style scoped></style>

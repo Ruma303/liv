@@ -1,8 +1,8 @@
 <template>
-    <h1>Welcome page</h1>
+    <h1 class="text-2xl font-semibold">Welcome page</h1>
+    <Navbar />
 </template>
 <script setup>
-import { Link } from '@inertiajs/vue3';
-
+import Navbar from '../Shared/Navbar.vue';
 </script>
 <style scoped></style>

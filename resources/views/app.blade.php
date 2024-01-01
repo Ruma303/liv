@@ -7,8 +7,6 @@
     @inertiaHead
 </head>
 <body>
-    <div class="flex justify-center min-w-full min-h-screen">
-        @inertia
-    </div>
+    @inertia
 </body>
 </html>

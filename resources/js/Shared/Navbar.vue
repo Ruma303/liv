@@ -1,8 +1,11 @@
 <template>
-    <nav>
-        <Link href="/">Welcome</Link>
-        <Link href="/contacts">Contacts</Link>
-        <Link href="/about">About</Link>
+    <nav class="mx-auto flex justify-center">
+        <Link href="/" preserve-scroll
+        class="hover:text-sky-700">Welcome</Link>
+        <Link href="/contacts" preserve-scroll
+        class="hover:text-sky-700">Contacts</Link>
+        <Link href="/about" preserve-scroll
+        class="hover:text-sky-700">About</Link>
     </nav>
 </template>
 <script setup>

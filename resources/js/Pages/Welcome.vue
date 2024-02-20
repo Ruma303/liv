@@ -1,7 +1,5 @@
 <template>
-    <div class="welcome flex flex-col gap-4 mx-auto mt-2 px-4">
-        <Navbar />
-
+    <Base>
         <h1 class="text-4xl text-center">Welcome page</h1>
         <p>Il tuo nome: <b>{{ nick }}</b></p>
         <article>
@@ -16,11 +14,11 @@
                     {{ other }}</li>
             </ul>
         </article>
-    </div>
+    </Base>
 </template>
 
 <script setup>
-import Navbar from '../Components/Navbar.vue';
+import Base from '../Layouts/Base.vue';
 
 const props = defineProps({
     nick: String,

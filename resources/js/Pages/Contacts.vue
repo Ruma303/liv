@@ -10,3 +10,4 @@ import Navbar from '../Components/Navbar.vue';
 import Text from '../Components/Text.vue';
 </script>
 <style scoped></style>
+<Text />

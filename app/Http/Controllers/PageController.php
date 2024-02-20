@@ -11,4 +11,10 @@ class PageController extends Controller
         $someData = ['There', 'is', 'some', 'data', 'from', 'backend'];
         return inertia('About', compact('someData'));
     }
+
+
+    public function contacts()
+    {
+        return inertia('Contacts');
+    }
 }

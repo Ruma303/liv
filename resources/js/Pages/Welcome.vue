@@ -1,5 +1,6 @@
 <template>
     <div class="welcome flex flex-col gap-4 mx-auto mt-2 px-4">
+        <Navbar />
 
         <h1 class="text-4xl text-center">Welcome page</h1>
         <p>Il tuo nome: <b>{{ nick }}</b></p>
@@ -19,6 +20,8 @@
 </template>
 
 <script setup>
+import Navbar from '../Components/Navbar.vue';
+
 const props = defineProps({
     nick: String,
     job: String,

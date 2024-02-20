@@ -30,3 +30,4 @@ Route::get('/', function () {
 });
 
 Route::get('/about', [PageController::class, 'about']);
+Route::get('/contacts', [PageController::class, 'contacts']);

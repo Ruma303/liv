@@ -1,12 +1,25 @@
 <template>
     <nav class="mx-auto flex justify-center gap-4">
 
-        <!-- Step 1 -->
+        <!-- Link -->
+        <!-- <Link href="/" class="hover:text-violet-500">Welcome</Link>
+        <Link href="/contacts" class="hover:text-violet-500">Contacts</Link>
+        <Link href="/about" class="hover:text-violet-500">About</Link> -->
+
+        <!-- Altre Request -->
+        <!-- <Link href="/send-post-request" method="POST" as="button"
+        class="hover:text-violet-500 bg-slate-300 rounded-md px-2 border border-gray-400">
+            POST</Link>
+        <Link href="/send-patch-request" method="PATCH" as="button"
+            :data="{ user: 'Ruma' }"
+        class="hover:text-violet-500 bg-slate-300 rounded-md px-2 border border-gray-400">
+            PATCH</Link> -->
+
+        <!-- Preservare il scroll position -->
         <Link href="/" class="hover:text-violet-500">Welcome</Link>
         <Link href="/contacts" class="hover:text-violet-500">Contacts</Link>
-        <Link href="/about" class="hover:text-violet-500">About</Link>
+        <Link href="/about" class="hover:text-violet-500">About</Link> 
 
-        <!-- Step 2 -->
     </nav>
 </template>
 <script setup>

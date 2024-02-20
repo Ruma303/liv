@@ -1,0 +1,41 @@
+{   // Restore Terminals
+    "restoreTerminals.runOnStartup": true, // Impostando questo comando di sotto su true si avvieranno questi terminali sotto all'avvio di questa repo.
+    "restoreTerminals.terminals": [
+        {
+            "splitTerminals": [
+                {
+                    "shouldRunCommands": true, //? Completate le installazioni cambia su true
+                    "restoreTerminals.artificialDelayMilliseconds": 2000,
+                    "name": "Artisan",
+                    "commands": [
+                        "php artisan serve",
+                    ]
+                },
+                {
+                    "shouldRunCommands": true, //? Completate le installazioni cambia su true
+                    "restoreTerminals.artificialDelayMilliseconds": 2000,
+                    "name": "Vite",
+                    "commands": [
+                        "npm run dev",
+                    ]
+                }
+            ]
+        },
+        {
+            "splitTerminals": [
+                {
+                    "shouldRunCommands": true, //? Completate le installazioni cambia su true
+                    "restoreTerminals.artificialDelayMilliseconds": 2000,
+                    "name": "Terminal", //? Terminale dove scriverai
+                },
+                {
+                    "shouldRunCommands": true, //? Completate le installazioni cambia su true
+                    "name": "Route List",
+                    "commands": [
+                        "php artisan route:list",
+                    ]
+                }
+            ]
+        }
+    ]
+}

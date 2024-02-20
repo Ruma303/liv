@@ -19,12 +19,13 @@ Route::get('/', function () {
 });
 
 
-/* Route::get('/', function () {
+Route::get('/', function () {
     return Inertia::render('Welcome', [
         'nick' => 'Ruma',
         'job' => 'Web developer',
-        'Liv' => ['Inertia', 'Laravel', 'Vue']
+        'Liv' => ['Inertia', 'Laravel', 'Vue'],
+        'others' => ['SCSS', 'Tailwind']
     ]);
-}); */
+});
 
 

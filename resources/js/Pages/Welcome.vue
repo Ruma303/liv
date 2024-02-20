@@ -1,5 +1,5 @@
 <template>
-    <Base>
+    <Base >
         <h1 class="text-4xl text-center">Welcome page</h1>
         <p>Il tuo nome: <b>{{ nick }}</b></p>
         <article>
@@ -24,8 +24,6 @@ const props = defineProps({
     nick: String,
     job: String,
     Liv: Array,
-    others: Array
+    others: Array,
 });
 </script>
-
-<style scoped></style>

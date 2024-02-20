@@ -26,7 +26,8 @@ Route::get('/', function () {
         'nick' => 'Ruma',
         'job' => 'Web developer',
         'Liv' => ['Inertia', 'Laravel', 'Vue'],
-        'others' => ['SCSS', 'Tailwind']
+        'others' => ['SCSS', 'Tailwind'],
+        'username' => 'User Autenticato'
     ]);
 });
 

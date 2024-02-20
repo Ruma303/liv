@@ -2,6 +2,10 @@ import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/vue3'
 import NProgress from 'nprogress'
 import { router } from '@inertiajs/vue3'
+import NavLink from './Components/NavLink.vue';
+import Navbar from './Components/Navbar.vue';
+import Footer from './Components/Footer.vue';
+
 
 createInertiaApp({
     resolve: name => {
@@ -11,6 +15,9 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         createApp({ render: () => h(App, props) })
             .use(plugin)
+            .component('NavLink', NavLink)
+            .component('Navbar', Navbar)
+            .component('Footer', Footer)
             .mount(el)
     },
     progress: {

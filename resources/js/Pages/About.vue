@@ -1,18 +1,16 @@
-<template>
-    <div class="welcome flex flex-col gap-4 mx-auto mt-2 px-4">
+    <template>
+        <div class="flex flex-col gap-2 mx-auto mt-2 px-4">
+            <h1 class="text-4xl text-center mb-2">About page</h1>
+            <p class="font-semibold">Dati dal backend Laravel: </p>
+            <article>{{ someData ? someData.join(' ') :  'No data' }}</article>
+        </div>
+    </template>
 
-        <h1 class="text-4xl text-center">About page</h1>
-
-        <p>Dati dal backend Laravel: </p>
-        <article>{{ someData.join(' ') }}</article>
-    </div>
-</template>
-
-<script setup>
-const props = defineProps({
-    someData: Array
-});
-</script>
+    <script setup>
+    const props = defineProps({
+        someData: Array
+    });
+    </script>
 
 <style scoped>
 </style>

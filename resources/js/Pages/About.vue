@@ -14,5 +14,3 @@ const props = defineProps({
     someData: Array
 });
 </script>
-
-<style scoped></style>

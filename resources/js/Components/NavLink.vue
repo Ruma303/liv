@@ -13,5 +13,3 @@ const props = defineProps({
     active: Boolean
 });
 </script>
-<style scoped></style>
-

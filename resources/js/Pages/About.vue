@@ -4,6 +4,7 @@
         <h1 class="text-4xl text-center mb-2">About page</h1>
         <p class="font-semibold">Dati dal backend Laravel: </p>
         <article>{{ someData ? someData.join(' ') : 'No data' }}</article>
+        <pre>{{ $page }}</pre>
     </div>
 </template>
 

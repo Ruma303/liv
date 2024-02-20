@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +15,10 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return inertia('Welcome');
 });
-
+ */
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -29,3 +30,4 @@ Route::get('/', function () {
 });
 
 
+Route::get('/about', [PageController::class, 'about']);

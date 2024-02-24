@@ -13,6 +13,8 @@
         </header>
 
         <main class="flex flex-col gap-4 mx-auto mt-2 px-4">
+            <input type="text" v-model.trim="input" class="bg-gray-200 px-2 rounded-md">
+            <p v-if="input">{{ input }}</p>
             <slot />
         </main>
 
@@ -21,8 +23,10 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { usePage } from '@inertiajs/vue3';
 const { props } = usePage();
 const authUser = computed(() => props.auth);
+
+const input = ref(null);
 </script>

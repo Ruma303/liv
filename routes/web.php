@@ -42,3 +42,10 @@ Route::patch('/send-patch-request', function () {
     dump(request('user'));
     dd('Richiesta PATCH attivata');
 });
+
+
+Route::get('/admin', function () {
+    return inertia('AdminDashboard', [
+        'admin' => 'Il Boss'
+    ]);
+});

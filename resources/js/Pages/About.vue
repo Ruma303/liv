@@ -11,18 +11,4 @@
 const props = defineProps({
     someData: Array
 });
-import Base from '@/Layouts/Base.vue'
-
-defineLayout(Base)
 </script>
-
-
-<!-- <script>
-import Base from '@/Layouts/Base.vue';
-export default {
-    layout: Base,
-    props: {
-        someData: Array
-    },
-}
-</script> -->

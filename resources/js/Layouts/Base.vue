@@ -27,6 +27,5 @@ import { computed, ref } from 'vue';
 import { usePage } from '@inertiajs/vue3';
 const { props } = usePage();
 const authUser = computed(() => props.auth);
-
 const input = ref(null);
 </script>

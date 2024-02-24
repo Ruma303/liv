@@ -44,8 +44,8 @@ Route::patch('/send-patch-request', function () {
 });
 
 
-    Route::get('/admin', function () {
-        return inertia('AdminDashboard', [
-            'admin' => 'Il Boss'
-        ]);
-    });
+Route::get('/admin', function () {
+    return inertia('AdminDashboard', [
+        'admin' => 'Il Boss'
+    ]);
+});

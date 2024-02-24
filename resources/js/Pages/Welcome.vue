@@ -14,30 +14,12 @@
         </ul>
     </article>
 </template>
-<!--
-<script setup>
-import Base from '../Layouts/Base.vue';
 
+<script setup>
 const props = defineProps({
     nick: String,
     job: String,
     Liv: Array,
     others: Array,
 });
-</script> -->
-
-
-<script>
-import Base from '../Layouts/Base.vue'
-
-export default {
-    layout: Base,
-
-    props: {
-        snick: String,
-        job: String,
-        Liv: Array,
-        others: Array,
-    },
-}
 </script>

@@ -23,7 +23,6 @@ createInertiaApp({
             .component('NavLink', NavLink)
             .component('Navbar', Navbar)
             .component('Footer', Footer)
-            // .component('Head', Head)
             .mount(el)
     },
     progress: {

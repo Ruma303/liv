@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -49,3 +50,13 @@ Route::get('/admin', function () {
         'admin' => 'Il Boss'
     ]);
 });
+
+
+    Route::get('/users', function () {
+        $users = User::all()->map(fn($user) => [
+            'name' => $user->name,
+            'id' => $user->id
+        ]);
+        return Inertia::render('Users', compact('users'));
+    });
+

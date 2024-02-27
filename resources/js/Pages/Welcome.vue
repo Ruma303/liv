@@ -1,4 +1,8 @@
 <template>
+    <Head>
+        <title>Liv - Homepage</title>
+        <meta name="description" content="Welcome page">
+    </Head>
     <h1 class="text-4xl text-center">Welcome page</h1>
     <p>Il tuo nome: <b>{{ nick }}</b></p>
     <article>
@@ -16,6 +20,7 @@
 </template>
 
 <script setup>
+import { Head } from '@inertiajs/vue3';
 const props = defineProps({
     nick: String,
     job: String,

@@ -1,6 +1,8 @@
 <template>
+    <Head title="Base Layout">
+        <meta head-key="description" name="description" content="Base Layout">
+    </Head>
     <div class="max-w-3xl mx-auto shadow-xl shadow-slate-300 ">
-
         <header class="flex justify-between items-center bg-gray-300 py-2 px-5">
             <div class="flex gap-2 items-center">
                 <h1 class="text-xl text-violet-500 font-bold">LIV App</h1>
@@ -28,4 +30,5 @@ import { usePage } from '@inertiajs/vue3';
 const { props } = usePage();
 const authUser = computed(() => props.auth);
 const input = ref(null);
+import { Head } from '@inertiajs/vue3';
 </script>

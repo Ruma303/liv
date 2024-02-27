@@ -1,4 +1,8 @@
 <template>
+    <Head>
+        <title>About</title>
+        <meta head-key="description" name="description" content="About page">
+    </Head>
     <div class="flex flex-col gap-2 mx-auto mt-2 px-4">
         <h1 class="text-4xl text-center mb-2">About page</h1>
         <p class="font-semibold">Dati dal backend Laravel: </p>
@@ -8,7 +12,9 @@
 </template>
 
 <script setup>
+import { Head } from '@inertiajs/vue3';
 const props = defineProps({
     someData: Array
 });
 </script>
+-

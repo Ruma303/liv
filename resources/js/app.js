@@ -7,12 +7,13 @@ import Navbar from './Components/Navbar.vue';
 import Footer from './Components/Footer.vue';
 import Base from './Layouts/Base.vue';
 import Admin from './Layouts/Admin.vue';
+import { Head } from '@inertiajs/vue3';
 
 createInertiaApp({
+    title: title => `LIV - ${title}`,
     resolve: name => {
         const pages = import.meta.glob('./Pages/**/*.vue', { eager: true });
         let page = pages[`./Pages/${name}.vue`];
-        // page.default.layout = page.default.layout || Base
         page.default.layout = name.startsWith('Admin') ? Admin : Base;
         return page;
     },
@@ -22,6 +23,7 @@ createInertiaApp({
             .component('NavLink', NavLink)
             .component('Navbar', Navbar)
             .component('Footer', Footer)
+            // .component('Head', Head)
             .mount(el)
     },
     progress: {

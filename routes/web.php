@@ -52,11 +52,16 @@ Route::get('/admin', function () {
 });
 
 
+// return User::paginate();
+/* $users = User::all()->map(fn($user) => [
+    'name' => $user->name,
+    'id' => $user->id
+]); */
+/* $users = User::paginate()->map(fn($user) => [
+    'name' => $user->name,
+    'id' => $user->id
+]); */
     Route::get('/users', function () {
-        $users = User::all()->map(fn($user) => [
-            'name' => $user->name,
-            'id' => $user->id
-        ]);
+        $users = User::paginate();
         return Inertia::render('Users', compact('users'));
     });
-

@@ -4,13 +4,25 @@
     </Head>
     <h1 class="text-4xl text-center">All users</h1>
     <ul v-if="users">
-        <li v-for="user in users" :key="user.id" v-text="user.name"/>
+        <!-- <li v-for="user in users.data" :key="user.id" v-text="user.name"/> -->
+        <li v-for="user in users.data" :key="user.id">{{ user.id }}. {{ user.name }} </li>
     </ul>
     <p v-else>Non ci sono utenti</p>
 
+    <div class="self-center">
+        <template v-for="link in users.links" :key="link.url">
+            <Link v-if="link.url" :href="link.url" v-html="link.label" class="px-1 hover:font-bold"
+                :class="{ 'font-bold text-violet-500': link.active }" />
+            <span v-else v-html="link.label" class="px-1" :class="{ 'font-bold text-violet-500': link.active }" />
+        </template>
+        <!-- <Pagination :links="users.links" /> -->
+    </div>
 </template>
 
 <script setup>
-import { Head } from '@inertiajs/vue3';
-const props = defineProps({ users: Array });
+import Pagination from '../Components/Pagination.vue';
+import { Head, Link } from '@inertiajs/vue3';
+const props = defineProps({ users: Object });
+//const props = defineProps({ users: Array });
+
 </script>

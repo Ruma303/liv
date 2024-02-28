@@ -61,7 +61,19 @@ Route::get('/admin', function () {
     'name' => $user->name,
     'id' => $user->id
 ]); */
-    Route::get('/users', function () {
+    /* Route::get('/users', function () {
         $users = User::paginate();
         return Inertia::render('Users', compact('users'));
+    }); */
+
+    Route::get('/users', function () {
+        return Inertia::render('Users', [
+            'users' => User::query()
+                ->when(request('search'), function ($query, $search) {
+                $query->where('name', 'like', '%' . $search . '%');
+            })
+            ->paginate(20)
+            ->withQueryString(),
+            'filters' => request()->only(['search'])
+        ]);
     });

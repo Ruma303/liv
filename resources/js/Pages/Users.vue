@@ -3,6 +3,8 @@
         <title>Liv - Security</title>
     </Head>
     <h1 class="text-4xl text-center">All users</h1>
+    <input type="text" placeholder="Search..." v-model="search"
+        class="border-2 border-gray-400 px-2 rounded-md focus:outline-purple-400">
     <ul v-if="users">
         <!-- <li v-for="user in users.data" :key="user.id" v-text="user.name"/> -->
         <li v-for="user in users.data" :key="user.id">{{ user.id }}. {{ user.name }} </li>
@@ -15,14 +17,23 @@
                 :class="{ 'font-bold text-violet-500': link.active }" />
             <span v-else v-html="link.label" class="px-1" :class="{ 'font-bold text-violet-500': link.active }" />
         </template>
-        <!-- <Pagination :links="users.links" /> -->
+
     </div>
 </template>
 
 <script setup>
 import Pagination from '../Components/Pagination.vue';
-import { Head, Link } from '@inertiajs/vue3';
-const props = defineProps({ users: Object });
+const props = defineProps({
+    users: Object,
+    filters: Object
+});
 //const props = defineProps({ users: Array });
 
+import { Head, Link, router } from '@inertiajs/vue3';
+import { ref, watch } from 'vue';
+//const search = ref('');
+const search = ref(props.filters.search);
+watch(search, (newVal, oldVal) => {
+    router.get('/users', { search: newVal }, { preserveState: true, replace: true });
+})
 </script>

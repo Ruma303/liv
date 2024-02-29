@@ -33,7 +33,20 @@ import { Head, Link, router } from '@inertiajs/vue3';
 import { ref, watch } from 'vue';
 //const search = ref('');
 const search = ref(props.filters.search);
-watch(search, (newVal, oldVal) => {
+
+/* watch(search, (newVal, oldVal) => {
     router.get('/users', { search: newVal }, { preserveState: true, replace: true });
-})
+}) */
+
+/* import throttle from 'lodash/throttle';
+watch(search, throttle(function(newVal, oldVal){
+    console.log('Nuova richiesta: ' + newVal);
+    router.get('/users', { search: newVal }, { preserveState: true, replace: true });
+}, 500)); */
+
+import debounce from 'lodash/debounce';
+watch(search, debounce(function(newVal, oldVal){
+    console.log('Nuova richiesta: ' + newVal);
+    router.get('/users', { search: newVal }, { preserveState: true, replace: true });
+}, 500));
 </script>

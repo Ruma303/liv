@@ -22,7 +22,6 @@
 </template>
 
 <script setup>
-import Pagination from '../Components/Pagination.vue';
 const props = defineProps({
     users: Object,
     filters: Object

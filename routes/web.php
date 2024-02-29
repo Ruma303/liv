@@ -52,28 +52,22 @@ Route::get('/admin', function () {
 });
 
 
-// return User::paginate();
-/* $users = User::all()->map(fn($user) => [
-    'name' => $user->name,
-    'id' => $user->id
-]); */
-/* $users = User::paginate()->map(fn($user) => [
-    'name' => $user->name,
-    'id' => $user->id
-]); */
-    /* Route::get('/users', function () {
-        $users = User::paginate();
-        return Inertia::render('Users', compact('users'));
-    }); */
+Route::get('/users', function () {
+    return Inertia::render('Users/Index', [
+        'users' => User::query()
+            ->when(request('search'), function ($query, $search) {
+            $query->where('name', 'like', '%' . $search . '%');
+        })
+        ->paginate(20)
+        ->withQueryString(),
+        'filters' => request()->only(['search'])
+    ]);
+});
 
-    Route::get('/users', function () {
-        return Inertia::render('Users', [
-            'users' => User::query()
-                ->when(request('search'), function ($query, $search) {
-                $query->where('name', 'like', '%' . $search . '%');
-            })
-            ->paginate(20)
-            ->withQueryString(),
-            'filters' => request()->only(['search'])
-        ]);
+
+    Route::get('users/create', function () {
+        return Inertia::render('Users/Create');
+    });
+    Route::get('users/edit', function () {
+        return Inertia::render('Users/Edit');
     });

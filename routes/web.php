@@ -21,12 +21,12 @@ Route::get('/', function () {
 
     Route::get('login', [LoginController::class, 'create'])->name('login');
     Route::post('login', [LoginController::class, 'login'])->name('login');
+    Route::post('logout', [LoginController::class, 'logout'])
+        ->middleware('auth')->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', function () {
-        return inertia('AdminDashboard', [
-            'admin' => 'Il Boss'
-        ]);
+        return inertia('AdminDashboard');
     });
     Route::get('users/create', function () {
         return Inertia::render('Users/Create');

@@ -22,10 +22,18 @@ class LoginController extends Controller
         if (auth()->attempt($credentials)) {
             request()->session()->regenerate();
 
-            return redirect()->intended('/admin');
+            return redirect()->intended('/');
         }
         return back()->withErrors([
             'email' => 'L\'email fornita non coincide con alcuna email nei nostri database.',
         ]);
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect('/login');
     }
 }

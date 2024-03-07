@@ -5,22 +5,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-/* Route::get('/', function () {
-    return inertia('Welcome');
-});
- */
+use App\Http\Controllers\Auth\LoginController;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -31,54 +16,33 @@ Route::get('/', function () {
         'username' => 'User Autenticato'
     ]);
 });
+    Route::get('/about', [PageController::class, 'about']);
+    Route::get('/contacts', [PageController::class, 'contacts']);
 
-Route::get('/about', [PageController::class, 'about']);
-Route::get('/contacts', [PageController::class, 'contacts']);
+    Route::get('login', [LoginController::class, 'create'])->name('login');
+    Route::post('login', [LoginController::class, 'login'])->name('login');
 
-Route::post('/send-post-request', function () {
-    dd('Richiesta POST attivata');
-});
-
-Route::patch('/send-patch-request', function () {
-    dump(request('user'));
-    dd('Richiesta PATCH attivata');
-});
-
-
-Route::get('/admin', function () {
-    return inertia('AdminDashboard', [
-        'admin' => 'Il Boss'
-    ]);
-});
-
-
-Route::get('/users', function () {
-    return Inertia::render('Users/Index', [
-        'users' => User::query()
-            ->when(request('search'), function ($query, $search) {
-            $query->where('name', 'like', '%' . $search . '%');
-        })
-        ->paginate(20)
-        ->withQueryString(),
-        'filters' => request()->only(['search'])
-    ]);
-});
-
-
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', function () {
+        return inertia('AdminDashboard', [
+            'admin' => 'Il Boss'
+        ]);
+    });
     Route::get('users/create', function () {
         return Inertia::render('Users/Create');
     });
-
-
-
+    Route::get('/users', function () {
+        return Inertia::render('Users/Index', [
+            'users' => User::query()
+                ->when(request('search'), function ($query, $search) {
+                    $query->where('name', 'like', '%' . $search . '%');
+                })
+                ->paginate(20)
+                ->withQueryString(),
+            'filters' => request()->only(['search'])
+        ]);
+    });
     Route::post('users', function () {
-        // Validare la richiesta
-
-        /* $attributes = request()->validate([
-            'name' => ['required'],
-            'email' => ['required', 'email'],
-            'password' => ['required', 'min:8'],
-        ]); */
         $attributes = request()->validate([
             'name' => 'required|string|min:5|max:255',
             'email' => 'required|email|unique:users|min:5|max:255',
@@ -96,14 +60,11 @@ Route::get('/users', function () {
             'password.required' => 'Il campo password è obbligatorio.',
             'password.min' => 'La password deve contenere almeno 8 caratteri.',
         ]);
-        // Creare un nuovo utente
         User::create($attributes);
-
-        // Reindirizzare l'utente
         return redirect('/users');
     });
-
-
     Route::get('users/edit', function () {
         return Inertia::render('Users/Edit');
     });
+});
+

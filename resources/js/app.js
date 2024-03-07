@@ -7,7 +7,6 @@ import Navbar from './Components/Navbar.vue';
 import Footer from './Components/Footer.vue';
 import Base from './Layouts/Base.vue';
 import Admin from './Layouts/Admin.vue';
-import { Head } from '@inertiajs/vue3';
 
 createInertiaApp({
     title: title => `LIV - ${title}`,

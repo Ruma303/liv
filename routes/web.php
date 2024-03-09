@@ -3,6 +3,7 @@
 use App\Models\User;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Auth\LoginController;
@@ -28,9 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', function () {
         return inertia('AdminDashboard');
     });
+
     Route::get('users/create', function () {
         return Inertia::render('Users/Create');
-    });
+    })->middleware('can:create,App\Models\User');
+
     Route::get('/users', function () {
         return Inertia::render('Users/Index', [
             'users' => User::query()
@@ -39,7 +42,17 @@ Route::middleware('auth')->group(function () {
                 })
                 ->paginate(20)
                 ->withQueryString(),
-            'filters' => request()->only(['search'])
+            'filters' => request()->only(['search']),
+            /* 'can' => [
+                'createUser' => in_array(Auth::user()->email, ['admin@admin.com', 'mario@rossi.it']),
+                'editUser' => in_array(Auth::user()->email, ['admin@admin.com', 'mario@rossi.it']),
+                'deleteUser' => in_array(Auth::user()->email, ['admin@admin.com', 'mario@rossi.it']),
+            ], */
+            'can' => [
+                'createUser' => Auth::user()->can('create', User::class),
+                'editUser' => Auth::user()->can('update', User::class),
+                'deleteUser' => Auth::user()->can('delete', User::class),
+            ]
         ]);
     });
     Route::post('users', function () {

@@ -1,10 +1,17 @@
 <template>
+
     <Head>
         <title>Liv - Security</title>
     </Head>
     <h1 class="text-4xl text-center">All users</h1>
-    <input type="text" placeholder="Search..." v-model="search"
-        class="border-2 border-gray-400 px-2 rounded-md focus:outline-purple-400">
+
+    <nav class="flex items-center justify-center gap-4">
+    <Link v-if="can.createUser" href="/users/create" :active="$page.component === 'Users/Create'"
+        class="bg-emerald-400 w-fit min-w-28 px-2 py-1 rounded-lg hover:text-white text-center">
+    Create user</Link>
+        <input type="text" placeholder="Search..." v-model="search"
+            class="w-full border-2 border-gray-400 px-2 rounded-md focus:outline-purple-400">
+    </nav>
     <ul v-if="users">
         <!-- <li v-for="user in users.data" :key="user.id" v-text="user.name"/> -->
         <li v-for="user in users.data" :key="user.id">{{ user.id }}. {{ user.name }} </li>
@@ -24,13 +31,11 @@
 <script setup>
 const props = defineProps({
     users: Object,
-    filters: Object
+    filters: Object,
+    can: Object
 });
-//const props = defineProps({ users: Array });
-
 import { Head, Link, router } from '@inertiajs/vue3';
 import { ref, watch } from 'vue';
-//const search = ref('');
 const search = ref(props.filters.search);
 watch(search, (newVal, oldVal) => {
     router.get('/users', { search: newVal }, { preserveState: true, replace: true });

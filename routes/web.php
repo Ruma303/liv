@@ -33,3 +33,4 @@ Route::get('/dashboard', function () {
     ]);
 });
 
+Route::inertia('report', 'Back/Report');

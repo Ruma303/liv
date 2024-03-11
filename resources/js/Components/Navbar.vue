@@ -1,9 +1,9 @@
 <template>
     <nav class="flex justify-center gap-4">
-        <NavLink href="/" :active="$page.component === 'Welcome'">Welcome</NavLink>
-        <NavLink href="/contacts" :active="$page.component === 'Contacts'">Contacts</NavLink>
-        <NavLink href="/about" :active="$page.component === 'About'">About</NavLink>
-        <NavLink href="/dashboard" :active="$page.component === 'Dashboard'">Dashboard</NavLink>
+        <NavLink href="/" :active="$page.component === 'Front/Welcome'">Welcome</NavLink>
+        <NavLink href="/contacts" :active="$page.component === 'Front/Contacts'">Contacts</NavLink>
+        <NavLink href="/about" :active="$page.component === 'Front/About'">About</NavLink>
+        <NavLink href="/dashboard" :active="$page.component === 'Back/Dashboard'">Dashboard</NavLink>
     </nav>
 </template>
 

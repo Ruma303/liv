@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
+    return Inertia::render('Front/Welcome', [
         'nick' => 'Ruma',
         'job' => 'Web developer',
         'Liv' => ['Inertia', 'Laravel', 'Vue'],
@@ -27,10 +27,9 @@ Route::patch('/send-patch-request', function () {
     dd('Richiesta PATCH attivata');
 });
 
-Route::get('/admin', function () {
-    return inertia('AdminDashboard', [
+Route::get('/dashboard', function () {
+    return inertia('Back/Dashboard', [
         'admin' => 'Il Boss'
     ]);
 });
 
-Route::inertia('/dashboard', 'Dashboard');

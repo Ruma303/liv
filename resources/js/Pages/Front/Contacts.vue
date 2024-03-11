@@ -13,5 +13,5 @@ layout: Base,
 </script>
 
 <script setup>
-import Text from '../Components/Text.vue';
+import Text from '../../Components/Text.vue';
 </script>

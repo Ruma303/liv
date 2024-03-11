@@ -4,9 +4,14 @@
             <div class="flex gap-2 items-center">
                 <h1 class="text-xl text-amber-500 font-bold">BackOffice</h1>
             </div>
+            <Navbar />
         </header>
         <main class="flex flex-col gap-4 mx-auto mt-2 px-4 pb-5">
             <slot />
         </main>
     </div>
 </template>
+
+<script setup>
+import Navbar from '../Components/Navbar.vue';
+</script>

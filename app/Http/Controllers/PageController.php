@@ -9,12 +9,12 @@ class PageController extends Controller
     public function about()
     {
         $someData = ['There', 'is', 'some', 'data', 'from', 'backend'];
-        return inertia('About', compact('someData'));
+        return inertia('Front/About', compact('someData'));
     }
 
 
     public function contacts()
     {
-        return inertia('Contacts');
+        return inertia('Front/Contacts');
     }
 }

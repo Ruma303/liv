@@ -17,9 +17,8 @@
 
 <script>
 import Base from '@/Layouts/Base.vue'
-import Admin from '@/Layouts/Admin.vue'
 export default {
-  layout: Admin,
+  layout: Base,
 }
 </script>
 

@@ -3,6 +3,7 @@
         <NavLink href="/" :active="$page.component === 'Welcome'">Welcome</NavLink>
         <NavLink href="/contacts" :active="$page.component === 'Contacts'">Contacts</NavLink>
         <NavLink href="/about" :active="$page.component === 'About'">About</NavLink>
+        <NavLink href="/dashboard" :active="$page.component === 'Dashboard'">Dashboard</NavLink>
     </nav>
 </template>
 

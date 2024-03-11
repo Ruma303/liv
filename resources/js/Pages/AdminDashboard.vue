@@ -8,6 +8,12 @@
     </div>
 </template>
 
+<script>
+export default {
+    layout: null
+}
+</script>
+
 <script setup>
 const props = defineProps({
     admin: String

@@ -15,6 +15,14 @@
     </article>
 </template>
 
+<script>
+import Base from '@/Layouts/Base.vue'
+import Admin from '@/Layouts/Admin.vue'
+export default {
+  layout: Base,
+}
+</script>
+
 <script setup>
 const props = defineProps({
     nick: String,

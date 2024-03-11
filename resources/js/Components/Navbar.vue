@@ -5,3 +5,7 @@
         <NavLink href="/about" :active="$page.component === 'About'">About</NavLink>
     </nav>
 </template>
+
+<script setup>
+import NavLink from './NavLink.vue';
+</script>

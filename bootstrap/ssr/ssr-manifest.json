@@ -1,0 +1,24 @@
+{
+  "\u0000plugin-vue:export-helper": [
+  ],
+  "resources/js/Components/Text.vue": [
+  ],
+  "resources/js/Pages/About.vue": [
+  ],
+  "resources/js/Pages/AdminDashboard.vue": [
+  ],
+  "resources/js/Pages/Auth/Login.vue": [
+  ],
+  "resources/js/Pages/Contacts.vue": [
+  ],
+  "resources/js/Pages/Users/Create.vue": [
+  ],
+  "resources/js/Pages/Users/Edit.vue": [
+  ],
+  "resources/js/Pages/Users/Index.vue": [
+  ],
+  "resources/js/Pages/Welcome.vue": [
+  ],
+  "resources/js/ssr.js": [
+  ]
+}
